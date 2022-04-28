@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
     adaguc-viewer:
-        image: adaguc-viewer
+        image: vorticeaemet/adaguc-viewer
         container_name: adaguc-viewer
         hostname: adaguc-viewer
         networks:

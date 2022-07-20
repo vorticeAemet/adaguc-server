@@ -34,8 +34,8 @@ http {
         ssl on;
         #ssl_certificate /cert/fullchain.pem;
         #ssl_certificate_key /cert/privkey.pem;
-        ssl_certificate aemet_es_ACCVCA-.pem;
-        ssl_certificate_key ssl__wildcard.aemet.es.key;
+        ssl_certificate /cert/aemet_es_ACCVCA-.pem;
+        ssl_certificate_/cert/key ssl__wildcard.aemet.es.key;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
         ssl_session_cache shared:SSL:10m;
         ssl_session_timeout 10m;

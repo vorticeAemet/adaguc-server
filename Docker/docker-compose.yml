@@ -63,7 +63,7 @@ services:
             - "EXTERNAL_HOSTNAME=${EXTERNALADDRESS}"
         volumes:
             - ./letsencrypt:/etc/letsencrypt
-            - ./cert:/cert
+            - /home/adaguc/cert:/cert
         restart: unless-stopped
         logging:
               driver: "json-file"

@@ -1,4 +1,0 @@
-#ifndef CCreateLegendRenderContinuousLegend_H
-#define CCreateLegendRenderContinuousLegend_H
-
-#endif

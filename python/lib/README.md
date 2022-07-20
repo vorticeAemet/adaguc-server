@@ -1,1 +1,0 @@
-Please check the start-with-python.md in the adaguc-server python folder.

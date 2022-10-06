@@ -26,7 +26,7 @@ services:
         volumes:
             - ${ADAGUC_DATASET_DIR}/:/data/adaguc-datasets
             - ${ADAGUC_AUTOWMS_DIR}/:/data/adaguc-autowms
-            - ${ADAGUC_DATA_DIR}/:/data/adaguc-data
+            - ${ADAGUC_DATA_DIR}/:/data
         networks:
             - adaguc-network
         environment:

@@ -79,6 +79,7 @@ services:
         networks:
             - adaguc-network
         volumes:
+            - /home/adaguc/adagucdb/data:/var/lib/postgresql/data
             - adaguc-server-compose-adagucdb:/adaguc/adagucdb
         expose:
             - "5432"

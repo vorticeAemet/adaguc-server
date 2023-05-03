@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+  <WMS>
+    <TitleFont location="{ADAGUC_PATH}/data/fonts/FreeSans.ttf" size="11"/>
+    <SubTitleFont location="{ADAGUC_PATH}/data/fonts/FreeSans.ttf" size="9"/>
+    <DimensionFont location="{ADAGUC_PATH}/data/fonts/FreeSans.ttf" size="8"/>
+    <ContourFont location="{ADAGUC_PATH}/data/fonts/arialbd.ttf" size="5"/>
+    <GridFont location="{ADAGUC_PATH}/data/fonts/FreeSans.ttf" size="5"/>
+  </WMS>
+</Configuration>

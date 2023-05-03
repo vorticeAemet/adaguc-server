@@ -27,6 +27,7 @@ services:
             - ${ADAGUC_DATASET_DIR}/:/data/adaguc-datasets
             - ${ADAGUC_AUTOWMS_DIR}/:/data/adaguc-autowms
             - ${ADAGUC_DATA_DIR}/:/data
+            - ./WMS.include.xml:/adaguc/adaguc-server-master/data/config/includes/WMS.include.xml
         networks:
             - adaguc-network
         environment:

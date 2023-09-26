@@ -5,6 +5,8 @@ services:
         image: vorticeaemet/adaguc-viewer
         container_name: adaguc-viewer
         hostname: adaguc-viewer
+        volumes:
+                - /src/apache-tomcat-8.0.44/webapps/yradar/:/var/www/html/adaguc-viewer/yradar
         networks:
             - adaguc-network
         environment:

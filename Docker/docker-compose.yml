@@ -7,7 +7,7 @@ services:
         hostname: adaguc-viewer
         volumes:
                 - /src/apache-tomcat-8.0.44/webapps/yradar/:/var/www/html/adaguc-viewer/yradar
-                - /src/apache-tomcat-8.0.44/webapps/adaguc-viewer/hipatia/:/var/www/html/adaguc-viewer/yradar/hipatia
+                - /src/apache-tomcat-8.0.44/webapps/adaguc-viewer/hipatia/:/var/www/html/adaguc-viewer/hipatia
         networks:
             - adaguc-network
         environment:

@@ -1,0 +1,73 @@
+user nginx;
+worker_processes auto;
+pcre_jit on;
+error_log /var/log/nginx/error.log warn;
+include /etc/nginx/modules/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    server_tokens off;
+    client_max_body_size 100m;
+    keepalive_timeout 65;
+    sendfile on;
+    tcp_nodelay on;
+    gzip_vary on;
+    log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+            '$status $body_bytes_sent "$http_referer" '
+            '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log /var/log/nginx/access.log main;
+    
+    # HTTP Catch all + Certbot challenge response
+    server {
+        listen 0.0.0.0:80 default_server;
+        listen [::]:80 default_server;
+
+	#catch-all server name, handle all requests
+        server_name _;
+        
+        location /.well-known {
+            alias /acme/.well-known;
+        }
+        # Adaguc viewer
+        location / {
+            proxy_pass http://adaguc-viewer:80/adaguc-viewer/;
+        }
+
+        # Adaguc-server endpoints      
+        location /wms {
+            proxy_pass http://adaguc-server:8080/wms;
+        }
+        location /adaguc-server {
+            proxy_pass http://adaguc-server:8080/wms;
+        }
+        location /adagucserver {
+            proxy_pass http://adaguc-server:8080/wms;
+        }
+        # AutoWMS
+        location /autowms {
+            proxy_pass http://adaguc-server:8080/autowms;
+        }
+	
+        #Healthcheck
+        location /healthcheck {
+            proxy_pass http://adaguc-server:8080/healthcheck;
+        }
+
+         # OpenDAp
+        location /adagucopendap/ {
+            proxy_pass http://adaguc-server:8080/adagucopendap/;
+        }
+
+        location @handle_redirect {
+            set $saved_redirect_location '$upstream_http_location';
+            proxy_pass $saved_redirect_location;
+        }
+    }
+
+}

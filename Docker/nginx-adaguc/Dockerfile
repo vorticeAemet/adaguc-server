@@ -7,7 +7,7 @@ RUN mkdir /run/nginx
 RUN mkdir /acme
 
 COPY nginx.conf.aemet /nginx.conf
-RUN ln -s /dev/stdout /var/log/nginx/access.log
+#RUN ln -s /dev/stdout /var/log/nginx/access.log
 RUN ln -s /dev/stderr /var/log/nginx/error.log
 
 COPY certbot.sh /certbot.sh

@@ -68,6 +68,7 @@ services:
         volumes:
             - ./letsencrypt:/etc/letsencrypt
             - /home/adaguc/cert:/cert
+            - /home/adaguc/nginx-log:/var/log/nginx
         restart: unless-stopped
         logging:
               driver: "json-file"
